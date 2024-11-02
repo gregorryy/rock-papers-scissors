@@ -75,9 +75,7 @@ function startRound(humanChoice) {
     container.innerHTML = `
             <div class="humanChoice">Your choice is <strong>${humanChoice}</strong></div>
             <div class="computerChoice">Computer choice is <strong>${computerChoice}</strong></div>  
-            <div class="result">${result}</div>
-            <div class="score">The score is <strong>${humanScore}</strong> for you <br> and <strong>${computerScore}</strong> for computer !</div>
-        `;
+            <div class="result">${result}</div>`;
 
     if (currentRound === totalRounds) {
       endGame();
