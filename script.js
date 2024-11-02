@@ -4,10 +4,16 @@ let humanScore = 0;
 let computerScore = 0;
 
 function endGame() {
-  document.getElementById(
-    "gameStatus"
-  ).textContent = `The game is over ! Your score is ${humanScore}, and the computer’s score is ${computerScore}!`;
+  //document.getElementById("gameStatus").textContent = `Game over, your score is ${humanScore}, and the computer’s score is ${computerScore} !`;
   disableButtons();
+
+  const gameStatus = document.getElementById("gameStatus");
+
+  const viewScoreButton = document.createElement("button");
+  viewScoreButton.textContent = "Show result";
+  viewScoreButton.onclick = showAlert;
+  viewScoreButton.classList = "resultBtn";
+  gameStatus.appendChild(viewScoreButton);
 }
 
 function updateRoundDisplay() {
@@ -20,15 +26,15 @@ function getComputerChoice() {
   return word[randomWord];
 }
 
-rock_paper = "You lose ! Paper beats Rock.";
-rock_scissors = "You win ! Rock beats Paper.";
-paper_scissors = "You lose ! Scissors beats Paper.";
-paper_rock = "You win ! Papers beat Rock.";
-scissors_rock = "You lose ! Rock beats Scissors.";
-scissors_paper = "You win ! Scissors beats Paper.";
-rock_rock = "Nobody win, equality !";
-paper_paper = "Nobody win, equality !";
-scissors_scissors = "Nobody win, equality !";
+rock_paper = "You <strong>lose</strong> ! Paper beats Rock.";
+rock_scissors = "You <strong>win</strong> ! Rock beats Paper.";
+paper_scissors = "You <strong>lose</strong> ! Scissors beats Paper.";
+paper_rock = "You <strong>win</strong> ! Papers beat Rock.";
+scissors_rock = "You <strong>lose</strong> ! Rock beats Scissors.";
+scissors_paper = "You <strong>win</strong> ! Scissors beats Paper.";
+rock_rock = "<strong>Nobody win</strong>, equality !";
+paper_paper = "<strong>Nobody win</strong>, equality !";
+scissors_scissors = "<strong>Nobody win</strong>, equality !";
 
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === "rock" && computerChoice === "rock") {
@@ -67,10 +73,10 @@ function startRound(humanChoice) {
 
     const container = document.getElementById("container");
     container.innerHTML = `
-            <div>-> Your choice is ${humanChoice}</div>
-            <div>Computer choice is ${computerChoice}</div>  
-            <div>${result}</div>
-            <div>The score is actually : ${humanScore} for you and ${computerScore} for computer !</div>
+            <div class="humanChoice">Your choice is <strong>${humanChoice}</strong></div>
+            <div class="computerChoice">Computer choice is <strong>${computerChoice}</strong></div>  
+            <div class="result">${result}</div>
+            <div class="score">The score is <strong>${humanScore}</strong> for you <br> and <strong>${computerScore}</strong> for computer !</div>
         `;
 
     if (currentRound === totalRounds) {
@@ -107,5 +113,12 @@ document.getElementById("scissors").addEventListener("click", () => {
   disableButtons();
   startRound("scissors");
 });
+
+// Fonction pour afficher l'alerte avec le message de score
+function showAlert() {
+  alert(
+    `Your score is ${humanScore}, and the computer’s score is ${computerScore}.`
+  );
+}
 
 updateRoundDisplay();

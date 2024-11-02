@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="content">
+    <div class="content" id="content">
       <h1 id="roundDisplay" class="roundDisplay">Round 1</h1>
       <div class="Cbutton">
         <button id="rock" class="choiceButton">🪨</button>
@@ -16,9 +16,9 @@
         <button id="scissors" class="choiceButton">✂️</button>
       </div>
       <div id="container"></div>
-      <p id="gameStatus" class="gameStatus"></p>
-      <div class="restartdiv">
-        <button onclick="location.reload()" class="restartBtn">Restart</button>
+      <div id="gameStatus" class="gameStatus"></div>
+      <div class="restartDiv">
+        <button class="restartBtn" onclick="location.reload()">Restart</button>
       </div>
     </div>
   </body>
