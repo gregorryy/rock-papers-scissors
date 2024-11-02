@@ -4,12 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock papers scissors</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    The whole game is in the console of your Chrome, press
-    <strong>Ctrl + Maj + C</strong> and console or,
-    <strong>right click</strong> and console.<br />
-    (Refresh the website to play again (F5))
+    <div class="content">
+      <h1 id="roundDisplay" class="roundDisplay">Round 1</h1>
+      <div class="Cbutton">
+        <button id="rock" class="choiceButton">🪨</button>
+        <button id="paper" class="choiceButton">🧻</button>
+        <button id="scissors" class="choiceButton">✂️</button>
+      </div>
+      <div id="container"></div>
+      <p id="gameStatus" class="gameStatus"></p>
+      <div class="restartdiv">
+        <button onclick="location.reload()" class="restartBtn">Restart</button>
+      </div>
+    </div>
   </body>
-  <script src="script.js"></script>
 </html>
